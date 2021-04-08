@@ -1,0 +1,36 @@
+.messageWrapper {
+    display: flex;
+}
+
+.avatarWrapper {
+
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.messageContainer {
+    background-color: rgba(0, 0, 41, 0.65);
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-content: flex-end;
+}
+
+.name {
+    color: mediumpurple;
+    padding-bottom: 10px;
+}
+
+.message {
+    color: white;
+}
+
+.time {
+    color: white;
+    align-self: flex-end;
+}
