@@ -2,19 +2,8 @@
     /*position: relative;*/
     /*display: block;*/
 }
-.headerWrapper:hover .nav{
-    /*display: block;*/
-    /*transform: translateX(0%);*/
-    left: 0;
 
-}
 .nav{
-    /*display: none;*/
-    /*background-color: black;*/
-    /*min-width: 200px;*/
-    /*transition: 0.5s;*/
-    /*transform: translateX(-100%);*/
-
     display: block;
     position: fixed;
     list-style:none;
@@ -26,12 +15,63 @@
     height: 100%;
     top: 0;
     left: -200px;
-    transition: left .2s;
+    transition: left .9s;
     z-index: 2;
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
 
 }
+
+.hiddenMenuTicker{
+    display: none;
+}
+
+.btnMenu{
+    color: #fff;
+    background-color: #666;
+    padding: 5px;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    transition: left .93s;
+    z-index: 3;
+    width: 25px;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+}
+
+.btnMenu span{
+    display: block;
+    height: 5px;
+    background-color: #fff;
+    margin: 5px 0 0;
+    transition: all .1s linear .23s;
+    position: relative;
+}
+
+.btnMenu span.first {
+    margin-top: 0;
+}
+
+.hiddenMenuTicker:checked ~ .btnMenu {
+    left: 160px;
+}
+.hiddenMenuTicker:checked ~ .nav {
+    left: 0;
+}
+.hiddenMenuTicker:checked ~ .btnMenu span.first {
+    -webkit-transform: rotate(45deg);
+    top: 10px;
+}
+.hiddenMenuTicker:checked ~ .btnMenu span.second {
+    opacity: 0;
+}
+.hiddenMenuTicker:checked ~ .btnMenu span.third {
+    -webkit-transform: rotate(-45deg);
+    top: -10px;
+}
+
 .nav li{
  list-style: none;
 }
@@ -43,14 +83,14 @@
     /*display: block;*/
 }
 
-.mainmenubtn {
-    background-color: rgba(21, 27, 75, 0.78);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding:20px;
-    margin-top:20px;
-}
-.mainmenubtn:hover {
-    background-color: #969cff;
-}
+/*.mainmenubtn {*/
+/*    background-color: rgba(21, 27, 75, 0.78);*/
+/*    color: white;*/
+/*    border: none;*/
+/*    cursor: pointer;*/
+/*    padding:20px;*/
+/*    margin-top:20px;*/
+/*}*/
+/*.mainmenubtn:hover {*/
+/*    background-color: #969cff;*/
+/*}*/
