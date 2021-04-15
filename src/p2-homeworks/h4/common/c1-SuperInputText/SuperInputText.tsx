@@ -1,5 +1,6 @@
 import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent} from 'react'
 import s from './SuperInputText.module.css'
+import {DefaultSpanPropsType} from "../../../h6/common/c4-SuperEditableSpan/SuperEditableSpan";
 
 // тип пропсов обычного инпута
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
@@ -10,7 +11,8 @@ type SuperInputTextPropsType = DefaultInputPropsType & { // и + ещё проп
     onChangeText?: (value: string) => void
     onEnter?: () => void
     error?: string
-    spanClassName?: string
+    spanClassName?: string,
+    spanProps?: DefaultSpanPropsType
 }
 
 const SuperInputText: React.FC<SuperInputTextPropsType> = (
@@ -20,7 +22,7 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
         onKeyPress, onEnter,
         error,
         className, spanClassName,
-
+       value,onBlur,
         ...restProps// все остальные пропсы попадут в объект restProps
     }
 ) => {
@@ -48,7 +50,8 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
                 onChange={onChangeCallback}
                 onKeyPress={onKeyPressCallback}
                 className={finalInputClassName}
-
+                value={value}
+onBlur={onBlur}
                 {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
             />
             {error && <span className={finalSpanClassName}>{error}</span>}
