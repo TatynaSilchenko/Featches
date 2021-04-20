@@ -19,11 +19,13 @@ function HW8() {
     // need to fix any
     const finalPeople = people.map((p: any) => (
         <div key={p._id}>
-            some name, age
+            Name: {p.name}&emsp;
+            Age: {p.age}
         </div>
     ))
 
-    const sortUp = () => setPeople(homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'}))
+    const sortUp = () => setPeople([...homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'})])
+    const sortDown = () => setPeople([...homeWorkReducer(initialPeople, {type: 'sort', payload: 'down'})])
 
     return (
         <div>
@@ -34,7 +36,7 @@ function HW8() {
             {finalPeople}
 
             <div><SuperButton onClick={sortUp}>sort up</SuperButton></div>
-            <div>sort down</div>
+            <div><SuperButton onClick={sortDown}>sort down</SuperButton></div>
             check 18
 
             <hr/>
