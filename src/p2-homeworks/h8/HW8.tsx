@@ -2,9 +2,13 @@ import React, {useState} from 'react'
 import {homeWorkReducer} from './bll/homeWorkReducer'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 
-// export type UserType =
+export type UserType ={
+    _id:number,
+    name:string,
+    age:number
+}
 
-const initialPeople = [
+const initialPeople:UserType[] = [
     {_id: 0, name: 'Кот', age: 3},
     {_id: 1, name: 'Александр', age: 66},
     {_id: 2, name: 'Коля', age: 16},
@@ -18,13 +22,14 @@ function HW8() {
 
     // need to fix any
     const finalPeople = people.map((p: any) => (
-        <div key={p._id}>
+        <div key={p._id} >
             Name: {p.name}&emsp;
             Age: {p.age}
         </div>
     ))
 
     const sortUp = () => setPeople([...homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'})])
+    const check18 = () => setPeople([...homeWorkReducer(initialPeople, {type: 'sort', payload: 18})])
     const sortDown = () => setPeople([...homeWorkReducer(initialPeople, {type: 'sort', payload: 'down'})])
 
     return (
